@@ -70,7 +70,7 @@ class BlogApiControllerTest {
                 .build());
 
         SecurityContext context = SecurityContextHolder.getContext();
-        context.setAuthentication(new UsernamePasswordAuthenticationToken(user,
+        context.setAuthentication(new UsernamePasswordAuthenticationToken(user, user.getPassword(),
                 user.getAuthorities()));
     }
 
@@ -83,11 +83,11 @@ class BlogApiControllerTest {
         final String content = "content";
         final AddArticleRequest userRequest = new AddArticleRequest(title, content);
 
-        Principal principal = Mockito.mock(Principal.class);
-        Mockito.when(principal.getName()).thenReturn("username");
-
         //객체 JSON 으로 직렬화
         final String requestbody = objectMapper.writeValueAsString(userRequest);
+
+        Principal principal = Mockito.mock(Principal.class);
+        Mockito.when(principal.getName()).thenReturn("username");
 
         //when
         // 설정한 내용을 바탕으로 요청 전송

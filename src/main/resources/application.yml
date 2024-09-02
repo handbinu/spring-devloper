@@ -1,4 +1,14 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 5341020..
+            client-secret: GOCSP..
+            scope:
+              - email
+              - profile
   jpa:
     #전송 쿼리 확인
     show-sql: true
