@@ -4,8 +4,8 @@ spring:
       client:
         registration:
           google:
-            client-id: 5341020..
-            client-secret: GOCSP..
+            client-id: test_id
+            client-secret: test_secret
             scope:
               - email
               - profile
@@ -22,5 +22,5 @@ spring:
       enabled: true
 jwt:
   issuer: ajufresh@gmail.com
-  secret_key: study-springboot
+  secret_key: test_key
 
